@@ -17,7 +17,7 @@ db_conn = connections.Connection(
 
 )
 output = {}
-table = 'lab'
+table = 'lab1'
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -38,7 +38,7 @@ def AddEmp():
     gender = request.form['gender']
     add = request.form['add']
 
-    insert_sql = "INSERT INTO lab VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO lab1 VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
