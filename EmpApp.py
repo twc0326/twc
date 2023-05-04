@@ -46,6 +46,8 @@ def AddEmp():
         cursor.execute(insert_sql, (name, email, phone, gender, add))
         db_conn.commit()
 
+       try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
        
         except Exception as e:
             return str(e)
