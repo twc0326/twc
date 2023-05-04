@@ -22,12 +22,12 @@ table = 'lab'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('index.html')
+    return render_template('twc.html')
 
 
 @app.route("/about", methods=['POST'])
 def about():
-    return render_template('index.html')
+    return render_template('twc.html')
 
 
 @app.route("/addemp", methods=['POST'])
@@ -38,7 +38,7 @@ def AddEmp():
     gender = request.form['gender']
     add = request.form['add']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO lab VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
@@ -46,17 +46,11 @@ def AddEmp():
         cursor.execute(insert_sql, (name, email, phone, gender, add))
         db_conn.commit()
 
-       try:
-            print("Data inserted in MySQL RDS... uploading image to S3...")
-       
-        except Exception as e:
-            return str(e)
-
     finally:
         cursor.close()
 
     print("all modification done...")
-    return render_template('index.html')
+    return render_template('twc.html')
 
 
 if __name__ == '__main__':
