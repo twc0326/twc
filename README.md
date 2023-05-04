@@ -3,6 +3,7 @@
 # Amazon Linux 2023
 
 #!/bin/bash
+sudo su
 yum update -y
 yum install git -y
 git clone https://github.com/twc0326/twc.git
